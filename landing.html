@@ -180,6 +180,7 @@
       </div>
       <div class="flex items-center gap-2">
         <a href="#servicios" class="hidden sm:inline-flex btn-primary text-white font-medium px-4 py-2 rounded-xl text-sm">Empezar</a>
+        <button id="currencyBtn" class="btn-ghost rounded-xl px-3 py-2 text-sm font-mono tracking-tight" title="Cambiar a pesos argentinos">US$</button>
         <button id="cartBtn" class="relative btn-ghost rounded-xl p-2.5" aria-label="Abrir carrito">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
           <span id="cartBadge" class="hidden absolute -top-1 -right-1 min-w-[20px] h-5 px-1 rounded-full bg-neon-pink text-white text-[11px] font-semibold flex items-center justify-center shadow-[0_0_12px_rgba(236,72,153,.7)]">0</span>
@@ -255,7 +256,7 @@
       <p class="mt-4 text-white/70 text-lg">Agregá servicios al carrito y coordinamos el resto por WhatsApp. Sin letra chica.</p>
     </div>
 
-    <div id="servicesGrid" class="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+    <div id="servicesGrid" class="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
       <!-- cards inyectadas por JS -->
     </div>
   </div>
@@ -456,14 +457,9 @@
 <div id="toast" class="toast">Agregado al carrito ✓</div>
 
 <script>
-  // =====================
-  // CONFIG — edita acá
-  // =====================
   const CONFIG = {
     brand: 'VecinoTech',
-    // Cambiá por tu número real en formato internacional sin +, sin espacios. Ej: 5491100000000
-    whatsapp: '5491100000000',
-    currency: 'US$',
+    whatsapp: '5491128524957',
   };
 
   const SERVICES = [
@@ -477,7 +473,6 @@
       features: ['Hasta 6 secciones', 'Animaciones & SEO base', 'Responsive total', 'Deploy + SSL'],
       color: 'violet',
       icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="3" width="18" height="14" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="15" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>`,
-      highlight: true,
     },
     {
       id: 'ecommerce',
@@ -502,15 +497,49 @@
       icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 12l9-9 9 9"/><path d="M5 10v10h14V10"/><path d="M9 20v-6h6v6"/></svg>`,
     },
     {
+      id: 'soporte-online',
+      category: 'Soporte Técnico',
+      name: 'Soporte Online',
+      price: 10,
+      tag: '/mes',
+      blurb: 'Asistencia técnica remota para cualquier problema del día a día: celu, PC, impresora, internet y más.',
+      features: ['Atención por teléfono y chat', 'Guía paso a paso', 'Hasta 3 consultas/mes', 'Respuesta en menos de 24 hs'],
+      color: 'lime',
+      icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.58 3.47 2 2 0 0 1 3.57 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.5a16 16 0 0 0 5.59 5.59l.87-.87a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>`,
+    },
+    {
+      id: 'soporte-premium',
+      category: 'Soporte Técnico',
+      name: 'Soporte Premium',
+      price: 30,
+      tag: '/mes',
+      blurb: 'Soporte prioritario con visita técnica a domicilio incluida cuando el problema no se puede resolver por teléfono.',
+      features: ['Consultas ilimitadas', 'Teléfono + videollamada', 'Visita a domicilio si es necesario', 'Atención prioritaria 7 días'],
+      color: 'cyan',
+      icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`,
+      highlight: true,
+    },
+    {
       id: 'mantenimiento',
-      category: 'Soporte',
-      name: 'Plan Mantenimiento',
+      category: 'Soporte Web',
+      name: 'Mantenimiento Web',
       price: 90,
       tag: '/mes',
-      blurb: 'Tu sitio y sistema siempre al día. Backups, updates y soporte.',
-      features: ['Backups diarios', 'Actualizaciones', 'Soporte WhatsApp', 'Informe mensual'],
+      blurb: 'Tu sitio siempre al día. Backups, actualizaciones y soporte dedicado.',
+      features: ['Backups diarios', 'Actualizaciones de seguridad', 'Soporte WhatsApp', 'Informe mensual'],
       color: 'lime',
       icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>`,
+    },
+    {
+      id: 'it-pyme',
+      category: 'IT Empresarial',
+      name: 'Setup IT PyME',
+      price: 350,
+      tag: 'Desde',
+      blurb: 'Configuración integral de red, equipos e impresoras para tu negocio. Salís funcionando el mismo día.',
+      features: ['Configuración de red Wi-Fi', 'Setup de PCs e impresoras', 'Software y licencias', 'Capacitación al equipo'],
+      color: 'violet',
+      icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>`,
     },
   ];
 
@@ -522,41 +551,69 @@
   };
 
   // =====================
+  // CURRENCY TOGGLE
+  // =====================
+  let dolarBlue = null;
+  let showARS = false;
+
+  async function fetchDolarBlue() {
+    try {
+      const r = await fetch('https://dolarapi.com/v1/dolares/blue');
+      const d = await r.json();
+      dolarBlue = d.venta;
+      const btn = document.getElementById('currencyBtn');
+      btn.title = `Dólar blue: $${dolarBlue.toLocaleString('es-AR')}`;
+    } catch(_) {}
+  }
+
+  function fmt(usdPrice) {
+    if (showARS && dolarBlue) {
+      return `$ ${Math.round(usdPrice * dolarBlue).toLocaleString('es-AR')}`;
+    }
+    return `US$ ${usdPrice.toLocaleString()}`;
+  }
+
+  function fmtSuffix(tag) {
+    return tag === '/mes' ? '/mes' : '';
+  }
+
+  // =====================
   // RENDER SERVICES
   // =====================
   const grid = document.getElementById('servicesGrid');
-  grid.innerHTML = SERVICES.map(s => {
-    const c = COLOR_MAP[s.color];
-    return `
-      <article class="card glass p-6 flex flex-col">
-        ${s.highlight ? '<div class="absolute -top-3 right-5"><span class="chip !bg-neon-pink/20 !border-neon-pink/50 !text-pink-200">★ Más elegido</span></div>' : ''}
-        <div class="flex items-center justify-between">
-          <div class="w-11 h-11 rounded-xl ${c.bg} border ${c.border} ${c.text} flex items-center justify-center">${s.icon}</div>
-          <span class="font-mono text-[10px] uppercase tracking-widest text-white/40">${s.category}</span>
-        </div>
-        <h3 class="mt-5 text-xl font-semibold">${s.name}</h3>
-        <p class="mt-2 text-sm text-white/60">${s.blurb}</p>
-        <ul class="mt-4 space-y-1.5 text-sm text-white/70">
-          ${s.features.map(f => `<li class="flex items-start gap-2"><span class="mt-[7px] w-1.5 h-1.5 rounded-full ${c.bg.replace('/15','/60')}"></span>${f}</li>`).join('')}
-        </ul>
-        <div class="mt-6 flex items-end justify-between">
-          <div>
-            <div class="text-[11px] uppercase tracking-widest text-white/40 font-mono">${s.tag}</div>
-            <div class="text-2xl font-bold">${CONFIG.currency} ${s.price.toLocaleString()}<span class="text-sm text-white/40 font-normal">${s.tag === '/mes' ? '/mes' : ''}</span></div>
+
+  function renderServices() {
+    grid.innerHTML = SERVICES.map(s => {
+      const c = COLOR_MAP[s.color];
+      return `
+        <article class="card glass p-6 flex flex-col">
+          ${s.highlight ? '<div class="absolute -top-3 right-5"><span class="chip !bg-neon-pink/20 !border-neon-pink/50 !text-pink-200">★ Más elegido</span></div>' : ''}
+          <div class="flex items-center justify-between">
+            <div class="w-11 h-11 rounded-xl ${c.bg} border ${c.border} ${c.text} flex items-center justify-center">${s.icon}</div>
+            <span class="font-mono text-[10px] uppercase tracking-widest text-white/40">${s.category}</span>
           </div>
-        </div>
-        <button data-id="${s.id}" class="addBtn mt-5 btn-primary text-white font-semibold py-2.5 rounded-xl w-full flex items-center justify-center gap-2">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-          Agregar al carrito
-        </button>
-      </article>
-    `;
-  }).join('');
+          <h3 class="mt-5 text-xl font-semibold">${s.name}</h3>
+          <p class="mt-2 text-sm text-white/60">${s.blurb}</p>
+          <ul class="mt-4 space-y-1.5 text-sm text-white/70 flex-1">
+            ${s.features.map(f => `<li class="flex items-start gap-2"><span class="mt-[7px] w-1.5 h-1.5 rounded-full ${c.bg.replace('/15','/60')} shrink-0"></span>${f}</li>`).join('')}
+          </ul>
+          <div class="mt-6">
+            <div class="text-[11px] uppercase tracking-widest text-white/40 font-mono">${s.tag === '/mes' ? 'Por mes' : 'Desde'}</div>
+            <div class="text-2xl font-bold">${fmt(s.price)}<span class="text-sm text-white/40 font-normal">${fmtSuffix(s.tag)}</span></div>
+          </div>
+          <button data-id="${s.id}" class="addBtn mt-5 btn-primary text-white font-semibold py-2.5 rounded-xl w-full flex items-center justify-center gap-2">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            Agregar al carrito
+          </button>
+        </article>
+      `;
+    }).join('');
+  }
 
   // =====================
   // CART LOGIC
   // =====================
-  const CART_KEY = 'neostack_cart_v1';
+  const CART_KEY = 'vecinotech_cart_v1';
   let cart = {};
   try { cart = JSON.parse(localStorage.getItem(CART_KEY) || '{}'); } catch(_) { cart = {}; }
 
@@ -573,6 +630,7 @@
   const checkoutBtn = document.getElementById('checkoutBtn');
   const waDirect = document.getElementById('waDirect');
   const emptyCta = document.getElementById('cartEmptyCta');
+  const currencyBtn = document.getElementById('currencyBtn');
 
   waDirect.href = `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent('¡Hola! Quiero consultar por sus servicios.')}`;
 
@@ -629,7 +687,7 @@
         <div class="flex-1 min-w-0">
           <div class="text-[10px] uppercase tracking-widest text-white/40 font-mono">${it.category}</div>
           <div class="font-semibold truncate">${it.name}</div>
-          <div class="text-sm text-white/60">${CONFIG.currency} ${it.price.toLocaleString()}${it.tag === '/mes' ? '/mes' : ''}</div>
+          <div class="text-sm text-white/60">${fmt(it.price)}${fmtSuffix(it.tag)}</div>
           <div class="mt-3 flex items-center gap-2">
             <button data-act="dec" data-id="${it.id}" class="w-7 h-7 rounded-lg btn-ghost flex items-center justify-center">−</button>
             <span class="w-6 text-center font-mono text-sm">${it.qty}</span>
@@ -639,12 +697,12 @@
         </div>
         <div class="text-right">
           <div class="text-xs text-white/40">Subtotal</div>
-          <div class="font-semibold">${CONFIG.currency} ${(it.price*it.qty).toLocaleString()}</div>
+          <div class="font-semibold">${fmt(it.price * it.qty)}</div>
         </div>
       </div>
     `).join('');
 
-    subtotalEl.textContent = `${CONFIG.currency} ${subtotal.toLocaleString()}`;
+    subtotalEl.textContent = fmt(subtotal);
   }
 
   function showToast(msg) {
@@ -657,22 +715,28 @@
   function buildWhatsAppMessage() {
     const items = Object.values(cart);
     if (items.length === 0) return '';
-    const lines = [
-      `¡Hola ${CONFIG.brand}! Quiero avanzar con este pedido:`,
-      ''
-    ];
+    const lines = [`¡Hola ${CONFIG.brand}! Quiero avanzar con este pedido:`, ''];
     let total = 0;
     items.forEach((it, i) => {
       const sub = it.price * it.qty;
       total += sub;
-      lines.push(`${i+1}. ${it.name} — x${it.qty} — ${CONFIG.currency} ${sub.toLocaleString()}${it.tag === '/mes' ? '/mes' : ''}`);
+      lines.push(`${i+1}. ${it.name} — x${it.qty} — US$ ${sub.toLocaleString()}${fmtSuffix(it.tag)}`);
     });
     lines.push('');
-    lines.push(`*Subtotal estimado:* ${CONFIG.currency} ${total.toLocaleString()}`);
+    lines.push(`*Subtotal estimado:* US$ ${total.toLocaleString()}`);
     lines.push('');
     lines.push('Quedo atento/a a la cotización final. ¡Gracias!');
     return lines.join('\n');
   }
+
+  // Currency toggle
+  currencyBtn.addEventListener('click', () => {
+    if (!dolarBlue) return;
+    showARS = !showARS;
+    currencyBtn.textContent = showARS ? `$ ARS` : 'US$';
+    renderServices();
+    renderCart();
+  });
 
   // Events
   cartBtn.addEventListener('click', openCart);
@@ -695,12 +759,13 @@
   checkoutBtn.addEventListener('click', () => {
     const msg = buildWhatsAppMessage();
     if (!msg) return;
-    const url = `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(msg)}`;
-    window.open(url, '_blank');
+    window.open(`https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(msg)}`, '_blank');
   });
 
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeCart(); });
 
+  fetchDolarBlue();
+  renderServices();
   renderCart();
 </script>
 </body>
