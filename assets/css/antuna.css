@@ -61,7 +61,7 @@ body::before{
   100%{ transform: translateY(115vh) translateX(var(--dx,50px)) rotate(calc(var(--r,0deg) + 220deg)); opacity:0; }
 }
 @media (prefers-reduced-motion: reduce){
-  .leaf-fall{ animation:none; opacity:.3; transform: translateY(30vh) rotate(var(--r,0deg)); }
+  .leaf-fall{ animation:none; opacity:.3; transform: translateY(var(--y, 30vh)) rotate(var(--r,0deg)); }
 }
 @media (prefers-reduced-motion: no-preference){
   .leaf-code{ animation: codeGlow 4s ease-in-out infinite; }
