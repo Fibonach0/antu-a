@@ -8,6 +8,9 @@
   --rust-dark:#A8431F;
   --honey:#D9A05B;
   --sage:#6E7F58;
+  --sage-dark:#3F4E32;
+  --wine:#7A3245;
+  --espresso:#2B1B14;
   --line:#E8DCC8;
   --display:'Fraunces', serif;
   --body:'Work Sans', sans-serif;
@@ -42,13 +45,39 @@ body::before{
   .bg-wash{ transition:none; }
 }
 
-header{padding:26px 0;}
+/* ---------- hojas que caen, con variedad de formas ---------- */
+.leaf-fall{
+  position:fixed; top:0; left:var(--x,10%); width:var(--w,50px); pointer-events:none; z-index:-1;
+  opacity:0;
+  animation: leafFall var(--dur,16s) linear var(--delay,0s) infinite;
+  filter: drop-shadow(0 2px 4px rgba(80,40,15,.3));
+}
+.leaf-fall img{ width:100%; height:auto; display:block; }
+.leaf-fall svg{ width:100%; height:auto; display:block; }
+@keyframes leafFall{
+  0%{ transform: translateY(-15vh) translateX(0) rotate(var(--r,0deg)); opacity:0; }
+  8%{ opacity:.5; }
+  85%{ opacity:.5; }
+  100%{ transform: translateY(115vh) translateX(var(--dx,50px)) rotate(calc(var(--r,0deg) + 220deg)); opacity:0; }
+}
+@media (prefers-reduced-motion: reduce){
+  .leaf-fall{ animation:none; opacity:.3; transform: translateY(30vh) rotate(var(--r,0deg)); }
+}
+@media (prefers-reduced-motion: no-preference){
+  .leaf-code{ animation: codeGlow 4s ease-in-out infinite; }
+}
+@keyframes codeGlow{
+  0%, 100%{ opacity:.35; }
+  50%{ opacity:.7; }
+}
+
+header{padding:22px 0; background:var(--rust-dark);}
 header .row{display:flex; align-items:center; justify-content:space-between;}
-.brand{font-family:var(--display); font-weight:700; font-size:22px; color:var(--rust); text-decoration:none;}
+.brand{font-family:var(--display); font-weight:700; font-size:22px; color:var(--cream); text-decoration:none;}
 nav{display:flex; gap:26px; font-size:15px;}
-nav a{text-decoration:none; color:var(--ink-soft); transition:color .15s; margin-left:26px;}
+nav a{text-decoration:none; color:rgba(250,243,236,.8); transition:color .15s; margin-left:26px;}
 nav a:first-child{margin-left:0;}
-nav a:hover{color:var(--rust);}
+nav a:hover{color:#fff;}
 @media (max-width:560px){ nav{display:none;} }
 
 .btn{
@@ -93,10 +122,11 @@ section{padding:64px 0;}
 .card .more{display:inline-block; margin-top:14px; font-size:14px; font-weight:600; color:var(--rust); text-decoration:none;}
 
 /* quien esta del otro lado */
-.about{background:var(--cream-2); border-radius:28px;}
+.about{background:var(--wine); border-radius:28px; color:var(--cream);}
 .about-inner{max-width:680px; margin:0 auto; text-align:center;}
-.about p{font-size:17.5px; color:var(--ink-soft);}
-.about .signoff{font-family:var(--display); font-size:19px; color:var(--ink); margin-top:10px;}
+.about h2{color:var(--cream);}
+.about p{font-size:17.5px; color:rgba(250,243,236,.85);}
+.about .signoff{font-family:var(--display); font-size:19px; color:var(--cream); margin-top:10px;}
 
 /* fibot mascota (usado en home y en /fibot/) */
 .fibot{display:flex; align-items:center; gap:44px;}
@@ -129,7 +159,7 @@ section{padding:64px 0;}
 .contact .email{margin-top:18px; font-size:14.5px;}
 .contact .email a{color:var(--rust); text-decoration:underline;}
 
-footer{padding:34px 0; text-align:center; border-top:1px solid var(--line);}
-footer p{font-size:13.5px; color:var(--ink-soft); margin:0;}
-footer a{color:var(--ink-soft); text-decoration:none;}
-footer a:hover{color:var(--rust);}
+footer{padding:34px 0; text-align:center; background:var(--espresso);}
+footer p{font-size:13.5px; color:rgba(250,243,236,.65); margin:0;}
+footer a{color:rgba(250,243,236,.85); text-decoration:none;}
+footer a:hover{color:var(--honey);}
