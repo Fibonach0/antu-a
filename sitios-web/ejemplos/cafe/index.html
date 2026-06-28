@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Café del Barrio</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FAF3EC; --card:#FFFCF8; --ink:#332821; --ink-soft:#5C5048;
+    --rust:#C1542C; --honey:#D9A05B; --line:#E8DCC8;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; background:var(--cream); color:var(--ink); font-family:'Work Sans',sans-serif; line-height:1.6;}
+  h1,h2,h3{font-family:'Fraunces',serif; font-weight:600; margin:0 0 .4em;}
+  a{color:inherit; text-decoration:none;}
+  .wrap{max-width:880px; margin:0 auto; padding:0 24px;}
+  .demo-banner{background:#1D1D1F; color:#fff; text-align:center; padding:10px; font-size:13px; font-family:'Work Sans',sans-serif;}
+  .demo-banner a{color:#8FD6FF; text-decoration:underline;}
+  header{padding:22px 0; border-bottom:1px solid var(--line);}
+  header .row{display:flex; justify-content:space-between; align-items:center;}
+  .brand{font-family:'Fraunces',serif; font-weight:700; font-size:22px; color:var(--rust);}
+  nav a{margin-left:26px; font-size:14px; color:var(--ink-soft);}
+  .hero{padding:80px 0; text-align:center;}
+  .hero h1{font-size:clamp(36px,6vw,58px);}
+  .hero p{font-size:18px; color:var(--ink-soft); max-width:480px; margin:0 auto 28px;}
+  .btn{display:inline-block; background:var(--rust); color:#fff; padding:13px 26px; border-radius:30px; font-weight:600;}
+  section{padding:56px 0;}
+  .section-title{text-align:center; margin-bottom:40px;}
+  .section-title span{font-size:13px; letter-spacing:.1em; text-transform:uppercase; color:var(--honey); font-weight:600;}
+  .menu-grid{display:grid; grid-template-columns:1fr 1fr; gap:40px;}
+  @media (max-width:680px){ .menu-grid{grid-template-columns:1fr;} }
+  .menu-cat h3{font-size:20px; color:var(--rust); display:flex; align-items:center; gap:10px;}
+  .menu-item{display:flex; justify-content:space-between; gap:14px; padding:10px 0; border-bottom:1px dashed var(--line);}
+  .menu-item .name{font-weight:600;}
+  .menu-item .desc{font-size:13px; color:var(--ink-soft); display:block;}
+  .menu-item .price{font-family:'Fraunces',serif; color:var(--rust); font-weight:600; white-space:nowrap;}
+  .info-grid{display:grid; grid-template-columns:1fr 1fr; gap:30px; text-align:center;}
+  .info-card{background:var(--card); border:1px solid var(--line); border-radius:16px; padding:28px;}
+  footer{padding:30px 0; text-align:center; font-size:13px; color:var(--ink-soft); border-top:1px solid var(--line);}
+</style>
+</head>
+<body>
+
+<div class="demo-banner">Sitio de ejemplo creado por <strong>AntuñA</strong> — <a href="../../">ver más ejemplos</a></div>
+
+<header><div class="wrap row">
+  <div class="brand">Café del Barrio</div>
+  <nav><a href="#menu">Menú</a><a href="#info">Ubicación</a></nav>
+</div></header>
+
+<section class="hero wrap">
+  <h1>Tu rincón de todos los días</h1>
+  <p>Café de especialidad, brunch casero y la mesa de siempre, en el barrio de siempre.</p>
+  <a class="btn" href="#menu">Ver el menú</a>
+</section>
+
+<section id="menu">
+  <div class="wrap">
+    <div class="section-title"><span>Menú</span><h2>Lo de siempre, bien hecho</h2></div>
+    <div class="menu-grid">
+      <div class="menu-cat">
+        <h3>☕ Cafés</h3>
+        <div class="menu-item"><div><div class="name">Flat White</div><span class="desc">Doble espresso, leche vaporizada</span></div><div class="price">$3.200</div></div>
+        <div class="menu-item"><div><div class="name">Cold Brew</div><span class="desc">12 hs de infusión en frío</span></div><div class="price">$3.500</div></div>
+        <div class="menu-item"><div><div class="name">Capuccino</div><span class="desc">Espuma cremosa, canela opcional</span></div><div class="price">$3.000</div></div>
+      </div>
+      <div class="menu-cat">
+        <h3>🥐 Brunch</h3>
+        <div class="menu-item"><div><div class="name">Tostado de palta</div><span class="desc">Pan de masa madre, huevo poché</span></div><div class="price">$6.800</div></div>
+        <div class="menu-item"><div><div class="name">Medialunas (x3)</div><span class="desc">De manteca, recién horneadas</span></div><div class="price">$2.900</div></div>
+        <div class="menu-item"><div><div class="name">Bowl de frutas</div><span class="desc">Granola casera y yogur</span></div><div class="price">$5.200</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="info" style="background:var(--card); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+  <div class="wrap">
+    <div class="section-title"><span>Encontranos</span><h2>Te esperamos</h2></div>
+    <div class="info-grid">
+      <div class="info-card"><h3 style="font-size:17px;">Horario</h3><p style="margin:0; color:var(--ink-soft);">Lun a Sáb, 8 a 20 hs<br>Domingos, 9 a 14 hs</p></div>
+      <div class="info-card"><h3 style="font-size:17px;">Ubicación</h3><p style="margin:0; color:var(--ink-soft);">Av. Siempreviva 1234<br>Buenos Aires</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>Café del Barrio — sitio de ejemplo, no es un negocio real.</footer>
+</body>
+</html>
