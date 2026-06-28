@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estudio Bianchi & Asociados</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FAFAFA; --navy:#1B2A41; --gold:#B08D57; --ink:#232730; --ink-soft:#666B74; --line:#E2E4E8;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; background:var(--bg); color:var(--ink); font-family:'Inter',sans-serif; line-height:1.6;}
+  h1,h2,h3{font-family:'Lora',serif; font-weight:600; margin:0 0 .4em; color:var(--navy);}
+  a{color:inherit; text-decoration:none;}
+  .wrap{max-width:920px; margin:0 auto; padding:0 24px;}
+  .demo-banner{background:#1D1D1F; color:#fff; text-align:center; padding:10px; font-size:13px;}
+  .demo-banner a{color:#8FD6FF; text-decoration:underline;}
+  header{background:var(--navy); color:#fff; padding:20px 0;}
+  header .row{display:flex; justify-content:space-between; align-items:center;}
+  .brand{font-family:'Lora',serif; font-weight:600; font-size:20px; color:#fff;}
+  nav a{margin-left:28px; font-size:14px; color:#C7CDD6;}
+  .hero{padding:90px 0; text-align:center; background:var(--navy); color:#fff;}
+  .hero .eyebrow{color:var(--gold); letter-spacing:.12em; text-transform:uppercase; font-size:13px; font-weight:600;}
+  .hero h1{color:#fff; font-size:clamp(32px,5vw,48px); margin-top:14px;}
+  .hero p{color:#C7CDD6; max-width:520px; margin:0 auto 30px; font-size:17px;}
+  .btn{display:inline-block; background:var(--gold); color:#1B2A41; padding:13px 28px; border-radius:4px; font-weight:600; font-size:15px;}
+  section{padding:64px 0;}
+  .section-title{text-align:center; margin-bottom:46px;}
+  .section-title span{font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--gold); font-weight:600;}
+  .areas{display:grid; grid-template-columns:repeat(3,1fr); gap:28px;}
+  @media (max-width:760px){ .areas{grid-template-columns:1fr;} }
+  .area-card{border:1px solid var(--line); border-radius:6px; padding:28px; text-align:center; background:#fff;}
+  .area-card h3{font-size:18px;}
+  .area-card p{color:var(--ink-soft); font-size:14.5px; margin:0;}
+  .stats{display:grid; grid-template-columns:repeat(3,1fr); gap:20px; text-align:center; background:#fff; border:1px solid var(--line); border-radius:6px; padding:40px 20px;}
+  .stats .num{font-family:'Lora',serif; font-size:34px; color:var(--navy); font-weight:700;}
+  .stats .label{font-size:13px; color:var(--ink-soft);}
+  .contact{background:var(--navy); color:#fff; text-align:center;}
+  .contact h2{color:#fff;}
+  .contact p{color:#C7CDD6;}
+  footer{padding:26px 0; text-align:center; font-size:13px; color:var(--ink-soft); border-top:1px solid var(--line);}
+</style>
+</head>
+<body>
+
+<div class="demo-banner">Sitio de ejemplo creado por <strong>AntuñA</strong> — <a href="../../">ver más ejemplos</a></div>
+
+<header><div class="wrap row">
+  <div class="brand">Estudio Bianchi &amp; Asociados</div>
+  <nav><a href="#areas">Áreas</a><a href="#contacto">Contacto</a></nav>
+</div></header>
+
+<section class="hero wrap">
+  <span class="eyebrow">Estudio Contable &amp; Auditoría</span>
+  <h1>Tu negocio, en orden.</h1>
+  <p>Más de 20 años asesorando a empresas y profesionales independientes en Buenos Aires.</p>
+  <a class="btn" href="#contacto">Solicitar una consulta</a>
+</section>
+
+<section id="areas">
+  <div class="wrap">
+    <div class="section-title"><span>Áreas de práctica</span><h2>En qué te podemos ayudar</h2></div>
+    <div class="areas">
+      <div class="area-card"><h3>Contabilidad</h3><p>Liquidación de impuestos, balances y presentaciones ante AFIP.</p></div>
+      <div class="area-card"><h3>Auditoría</h3><p>Revisión y control de estados contables para empresas y socios.</p></div>
+      <div class="area-card"><h3>Asesoría fiscal</h3><p>Planificación impositiva y acompañamiento en inspecciones.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="background:#fff; border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+  <div class="wrap">
+    <div class="stats">
+      <div><div class="num">20+</div><div class="label">Años de trayectoria</div></div>
+      <div><div class="num">180</div><div class="label">Clientes activos</div></div>
+      <div><div class="num">100%</div><div class="label">Presentaciones a término</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="contacto" class="contact">
+  <div class="wrap">
+    <span class="eyebrow">Contacto</span>
+    <h2>Conversemos sobre tu empresa</h2>
+    <p>Av. Corrientes 1234, Piso 4 — Buenos Aires</p>
+    <a class="btn" href="#" onclick="return false;">+54 11 4555-0123</a>
+  </div>
+</section>
+
+<footer>Estudio Bianchi &amp; Asociados — sitio de ejemplo, no es un negocio real.</footer>
+</body>
+</html>
