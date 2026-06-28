@@ -87,7 +87,7 @@ section{padding:80px 0;}
 /* ---------- fibot ---------- */
 .fibot{display:flex; align-items:center; gap:48px;}
 @media (max-width:760px){ .fibot{flex-direction:column; text-align:center;} }
-.fibot-art{flex:none; width:180px; height:180px;}
+.fibot-art{flex:none; width:180px;}
 .fibot-copy{flex:1;}
 .fibot-copy h1{font-size:clamp(28px,4.5vw,38px);}
 .fibot-list{list-style:none; padding:0; margin:18px 0 28px; display:grid; gap:10px;}
