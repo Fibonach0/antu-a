@@ -32,9 +32,9 @@
   .section-title span{font-size:13px; letter-spacing:.1em; text-transform:uppercase; color:var(--lime); font-weight:700;}
   .cats{display:grid; grid-template-columns:repeat(4,1fr); gap:16px;}
   @media (max-width:760px){ .cats{grid-template-columns:1fr 1fr;} }
-  .cat-card{background:var(--card); border:1px solid var(--line); border-radius:10px; padding:26px 18px; text-align:center;}
-  .cat-card .ico{font-size:28px; margin-bottom:10px;}
-  .cat-card h3{font-size:15px; margin:0;}
+  .cat-card{background:var(--card); border:1px solid var(--line); border-radius:10px; padding:14px; text-align:center; overflow:hidden;}
+  .cat-card img{width:100%; aspect-ratio:1; object-fit:cover; border-radius:6px; margin-bottom:14px; display:block;}
+  .cat-card h3{font-size:15px; margin:0 0 4px;}
   .promo{background:var(--lime); color:#0F1310; border-radius:14px; padding:40px; text-align:center;}
   .promo h2{color:#0F1310;}
   .promo p{margin:0 0 18px;}
@@ -65,10 +65,10 @@
   <div class="wrap">
     <div class="section-title"><span>Catálogo</span><h2>Elegí tu categoría</h2></div>
     <div class="cats">
-      <div class="cat-card"><div class="ico">👕</div><h3>Remeras</h3></div>
-      <div class="cat-card"><div class="ico">🧥</div><h3>Camperas</h3></div>
-      <div class="cat-card"><div class="ico">👖</div><h3>Pantalones</h3></div>
-      <div class="cat-card"><div class="ico">👟</div><h3>Calzado</h3></div>
+      <div class="cat-card"><img src="../../../assets/img/products/remeras.jpg" alt="Remeras"><h3>Remeras</h3></div>
+      <div class="cat-card"><img src="../../../assets/img/products/camperas.jpg" alt="Camperas"><h3>Camperas</h3></div>
+      <div class="cat-card"><img src="../../../assets/img/products/pantalones.jpg" alt="Pantalones"><h3>Pantalones</h3></div>
+      <div class="cat-card"><img src="../../../assets/img/products/calzado.jpg" alt="Calzado"><h3>Calzado</h3></div>
     </div>
   </div>
 </section>
