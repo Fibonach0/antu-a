@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /sitios-web/ejemplos/
+
+Sitemap: https://antuña.com.ar/sitemap.xml
